@@ -1,0 +1,41 @@
+/* ===================================
+========= register page  */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    flex-direction: column;
+    background-color: #e0e7eb;
+  }
+  
+  .form-container form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .form-container form .title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #27ae60;
+  }
+  
+  .form-container form input {
+    border: none;
+    border-bottom: 1px solid #27ae60;
+    border-radius: 0;
+  }
+  
+  .form-container form button {
+    border:none;
+    border-radius: 0;
+    background-color: #2ecc71;
+    color: white;
+    width: 270px;
+  }
+  
+  .form-container form button:hover {
+    background:#27ae60;
+  }

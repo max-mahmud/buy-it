@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/api/v1/user", authrouter);
+app.use("/api/v1/auth", authrouter);
 //rest api
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to ecommerce app</h1>");

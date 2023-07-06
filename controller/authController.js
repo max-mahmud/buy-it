@@ -117,3 +117,14 @@ export const getUser = async (req, res) => {
     res.status(500).send({ error });
   }
 };
+
+// delete a user
+export const deleteUser = async (req, res) => {
+  const {userId} = req.params
+  try {
+    const user = await userModel.findByIdAndDelete(userId)
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).send({ error });
+  }
+};

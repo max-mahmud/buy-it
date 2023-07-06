@@ -7,12 +7,17 @@ import Policy from "./pages/Policy";
 import NotePage from "./pages/NotePage";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
+import PrivateRoute from "./components/Routes/Private";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/dashboard" element={<PrivateRoute />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />

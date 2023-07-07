@@ -1,34 +1,28 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
-import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useAuth } from "../../context/hooks";
 
-const Login = () => {
+const ForgetPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [auth, setAuth] = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [newPassword, setNewPassword] = useState("");
+  const [favaritePlayer, setFavaritePlayer] = useState("");
 
-  // form function
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.patch("/api/v1/auth/forget-password", {
         email,
-        password,
+        newPassword,
+        favaritePlayer,
       });
       if (res && res.data.success) {
-        setAuth({
-          ...auth,
-          user: res.data.user,
-          token: res.data.token,
-        });
-        localStorage.setItem("auth", JSON.stringify(res.data));
         toast.success(res.data && res.data.message);
-        navigate(location.state || "/");
+
+        navigate("/login");
       } else {
         toast.error(res.data.message);
       }
@@ -38,10 +32,10 @@ const Login = () => {
     }
   };
   return (
-    <Layout title="Login - Ecommer App">
+    <Layout title={"Forget Password - Buy It"}>
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
-          <h4 className="title">LOGIN FORM</h4>
+          <h4 className="title">RESET PASSWORD</h4>
 
           <div className="mb-3">
             <input
@@ -56,28 +50,29 @@ const Login = () => {
           </div>
           <div className="mb-3">
             <input
+              type="text"
+              value={favaritePlayer}
+              onChange={(e) => setFavaritePlayer(e.target.value)}
+              className="form-control"
+              id="favaritePlayer"
+              placeholder="Enter Your Favarite Player"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Enter Your Password"
               required
             />
           </div>
-          <div className="mb-3">
-            <button
-              type="button"
-              className="btn myButton"
-              onClick={() => {
-                navigate("/forgot-password");
-              }}
-            >
-              Forgot Password
-            </button>
-          </div>
+
           <button type="submit" className="btn btn-primary">
-            LOGIN
+            RESET
           </button>
         </form>
       </div>
@@ -85,4 +80,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgetPassword;

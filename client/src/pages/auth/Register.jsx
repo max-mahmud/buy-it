@@ -11,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [favaritePlayer, setFavaritePlayer] = useState("");
   const navigate = useNavigate();
 
   // form function
@@ -23,6 +24,7 @@ const Register = () => {
         password,
         phone,
         address,
+        favaritePlayer,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -46,7 +48,7 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="name"
               placeholder="Enter Your Name"
               required
               autoFocus
@@ -80,7 +82,7 @@ const Register = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="phone"
               placeholder="Enter Your Phone"
               required
             />
@@ -91,8 +93,19 @@ const Register = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="address"
               placeholder="Enter Your Address"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              value={favaritePlayer}
+              onChange={(e) => setFavaritePlayer(e.target.value)}
+              className="form-control"
+              id="favaritePlayer"
+              placeholder="Enter Your Favarite Player"
               required
             />
           </div>

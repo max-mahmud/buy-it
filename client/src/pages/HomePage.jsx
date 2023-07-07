@@ -7,7 +7,6 @@ const HomePage = () => {
   return (
     <Layout>
       home page
-      <pre>{JSON.stringify({auth})}</pre>
     </Layout>
   );
 };

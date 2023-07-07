@@ -4,6 +4,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import authrouter from "./routes/authRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
+import productRoute from "./routes/productRoute.js";
 
 //configure env
 dotenv.config();
@@ -17,6 +18,8 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/category", categoryRoute);
+app.use("/api/v1/product", productRoute);
+
 //rest api
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to ecommerce app</h1>");

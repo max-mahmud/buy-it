@@ -91,6 +91,8 @@ body{
     align-items: center;
     justify-content: center;
   }
+
+  /* ======btn ============= */
 .ant-modal .ant-modal-close {
   top: 28px;
   right: 30px;
@@ -108,4 +110,11 @@ body{
 .list-group-item.active {
   background-color: #16a085;
   border-color: #16a085;
+}
+
+
+/* ==================== */
+.product-link {
+  text-decoration: none !important;
+  color: black !important;
 }

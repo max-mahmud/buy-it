@@ -16,26 +16,31 @@ import Order from "./pages/user/Order";
 import Profile from "./pages/user/Profile";
 import CreateCategory from "./pages/admin/CreateCategory";
 import CreateProduct from "./pages/admin/CreateProduct";
-import User from './pages/admin/User';
+import User from "./pages/admin/User";
 import Products from "./pages/admin/Products";
+import UpdateProduct from "./pages/admin/UpdateProduct";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        {/* User Route */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Order />} />
           <Route path="user/profile" element={<Profile />} />
         </Route>
+        {/* Admin Route */}
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-category" element={<CreateCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/products" element={<Products />} />
+          <Route path="admin/product/:slug" element={<UpdateProduct />} />
           <Route path="admin/users" element={<User />} />
         </Route>
+
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />

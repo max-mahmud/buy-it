@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../../context/hooks";
+import { useAuth } from "../../context/auth";
 import axios from "axios";
 import Spinner from "../Spinner";
 import { Outlet } from "react-router-dom";

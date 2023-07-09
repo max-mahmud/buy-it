@@ -3,6 +3,7 @@ import Layout from "./../components/layout/Layout";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -12,6 +13,7 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   //get all cat
   const getAllCategory = async () => {
     try {
@@ -140,7 +142,7 @@ const HomePage = () => {
           <h2 className="text-center">All Products</h2>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id} >
+              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
                 <img
                   style={{ height: "250px" }}
                   src={`/api/v1/product/product-photo/${p._id}`}
@@ -153,7 +155,12 @@ const HomePage = () => {
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text"> $ {p.price}</p>
-                  <button className="btn btn-primary ms-1">More Details</button>
+                  <button
+                    className="btn btn-primary ms-1"
+                    onClick={()=>navigate(`/product/${p.slug}`)}
+                  >
+                    More Details
+                  </button>
                   <button className="btn btn-secondary ms-1">CART</button>
                 </div>
               </div>

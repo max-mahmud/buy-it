@@ -21,16 +21,17 @@ import Products from "./pages/admin/Products";
 import UpdateProduct from "./pages/admin/UpdateProduct";
 import SearchPage from "./pages/SearchPage";
 import ProductDetails from "./pages/ProductDetails";
+import CategoryProduct from "./pages/CategoryProduct";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-       <Route path="/product/:slug" element={<ProductDetails />} />
-        {/*  <Route path="/categories" element={<Categories />} />
-        <Route path="/category/:slug" element={<CategoryProduct />} /> */}
+        <Route path="/product/:slug" element={<ProductDetails />} />
+        <Route path="/category/:slug" element={<CategoryProduct />} />
         <Route path="/search" element={<SearchPage />} />
+        
         {/* User Route */}
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />

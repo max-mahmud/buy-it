@@ -22,7 +22,7 @@ const Products = () => {
   //lifecycle method
   useEffect(() => {
     getAllProducts();
-  }, []);
+  }, [products]);
 
   return (
     <Layout title={"Dashboard - All Users"}>

@@ -4,8 +4,11 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useCart } from "../context/cart";
+import { toast } from "react-toastify";
 
 const HomePage = () => {
+  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -104,6 +107,7 @@ const HomePage = () => {
       console.log(error);
     }
   };
+
   return (
     <Layout title={"ALl Products - Best offers "}>
       <div className="container-fluid row mt-3">
@@ -157,11 +161,23 @@ const HomePage = () => {
                   <p className="card-text"> $ {p.price}</p>
                   <button
                     className="btn btn-primary ms-1"
-                    onClick={()=>navigate(`/product/${p.slug}`)}
+                    onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     More Details
                   </button>
-                  <button className="btn btn-secondary ms-1">CART</button>
+                  <button
+                    className="btn btn-secondary ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item added successfully");
+                    }}
+                  >
+                    CART
+                  </button>
                 </div>
               </div>
             ))}

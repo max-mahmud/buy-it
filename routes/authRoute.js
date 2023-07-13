@@ -6,6 +6,7 @@ import {
   getUser,
   loginController,
   registerController,
+  updateProfileController,
 } from "../controller/authController.js";
 
 //router object
@@ -33,5 +34,8 @@ router.get("/user-auth", requireSignIn, (req, res) => {
 router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
+
+//update profile
+router.put("/profile", requireSignIn, updateProfileController);
 
 export default router;

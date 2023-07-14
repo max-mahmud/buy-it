@@ -5,6 +5,7 @@ import {
   braintreeTokenController,
   createProductController,
   deleteProductController,
+  getLateshProduct,
   getProductController,
   getSingleProductController,
   productCategoryController,
@@ -40,6 +41,10 @@ router.put(
 //get products
 router.get("/get-product", getProductController);
 
+
+//get latesh products
+router.get("/get-latesh-product", getLateshProduct);
+
 //single product
 router.get("/get-product/:slug", getSingleProductController);
 
@@ -73,6 +78,5 @@ router.get("/braintree/token", braintreeTokenController);
 
 //payments
 router.post("/braintree/payment", requireSignIn, brainTreePaymentController);
-
 
 export default router;

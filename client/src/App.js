@@ -24,6 +24,7 @@ import ProductDetails from "./pages/ProductDetails";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrder from "./pages/admin/AdminOrder";
+import SliderPage from "./components/layout/SliderPage";
 
 const App = () => {
   return (

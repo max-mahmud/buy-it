@@ -27,3 +27,22 @@
     text-align: center;
     /* margin-top: -140px !important; */
   }
+  .update-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .update-txt span{
+    padding: 7px 10px;
+    color: red;
+    background-color: rgba(167, 15, 15, 0.247) !important;
+  }
+  .update-txt button{
+    background-color: #4cd137;
+    color: aliceblue;
+    border: none !important;
+    padding: 7px 10px;
+  }
+  .update-txt button:hover{
+    background-color: #44bd32;
+  }

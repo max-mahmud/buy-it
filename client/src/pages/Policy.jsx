@@ -14,13 +14,18 @@ const Policy = () => {
           />
         </div>
         <div className="col-md-4">
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
-          <p>add privacy policy</p>
+          <h2 className="bg-dark p-2 text-white text-center">PRIVACY & POLICY</h2>
+          <h4>Contact information:</h4>
+          <p>name, email address, and phone number.</p>
+          <h4>Payment information:</h4>
+          <p>credit card number, expiration date, and billing address.</p>
+          <h4>Device information:</h4>
+          <p> IP address, and operating system</p>
+          <h4>Usage information:</h4>
+          <p>
+            visit on our App, the products view or purchase, and your search
+            history.
+          </p>
         </div>
       </div>
     </Layout>

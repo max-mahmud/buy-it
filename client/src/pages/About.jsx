@@ -13,13 +13,21 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
+          <h2 className="bg-dark p-2 text-white text-center">ABOUT US</h2>
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+            <strong>BUY-IT</strong> is an online retailer that sells a wide
+            variety of products, including clothing, electronics, home goods,
+            and more. We offer a convenient and secure shopping experience, with
+            fast shipping and friendly customer service.
+          </p>
+          <p className="text-justify mt-2">
+            Our website is easy to use and navigate, with clear product
+            descriptions and images. We also offer a variety of payment options,
+            so you can shop with confidence.
+          </p>
+          <p className="text-justify mt-2">
+            We are committed to providing our customers with the best possible
+            shopping experience.
           </p>
         </div>
       </div>

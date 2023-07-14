@@ -1,0 +1,34 @@
+.slider-page {
+  margin-bottom: 25px;
+}
+
+.my-slider {
+  box-shadow: 0 2px 4px rgb(192, 189, 189);
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 5px;
+  margin-right: 10px !important;
+}
+.slider-img img {
+  box-shadow: 0 2px 4px rgb(192, 189, 189);
+  width: 100%;
+  height: 250px;
+}
+.slider-body {
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+.slider-page button {
+  padding: 5px 10px;
+  background-color: #1b1b1b;
+  color: aliceblue;
+  border: none;
+}
+.slider-page button:hover {
+  background-color: #16a085;
+  color: #fff;
+}
+.slider-body h4 {
+  color: #16a085;
+}

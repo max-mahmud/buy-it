@@ -172,6 +172,25 @@ export const updateProductController = async (req, res) => {
   }
 };
 
+//Get Latesh product
+export const getLateshProduct = async (req, res) => {
+  try {
+    const product = await productModel
+      .find()
+      .select("-photo")
+      .sort({ createdAt: -1 })
+      .limit(4);
+    res.status(200).send(product );
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "Error in latesh product",
+    });
+  }
+};
+
 //delete controller
 export const deleteProductController = async (req, res) => {
   try {
@@ -375,4 +394,3 @@ export const brainTreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
-

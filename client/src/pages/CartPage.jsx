@@ -6,6 +6,7 @@ import Layout from "../components/layout/Layout";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "../styles/CartStyle.css"
 
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
@@ -13,17 +14,7 @@ const CartPage = () => {
   const navigate = useNavigate();
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   let index = "";
-  //   let count = 0;
-  //   if (cart) {
-  //     index = cart.findIndex((i) => i._id !== uniquCart._id);
-  //     setUniqueCart(cart);
-  //   }
-  // }, [cart]);
-  // console.log(uniquCart);
+  const [loading, setLoading] = useState(false)
 
   //total price
   const totalPrice = () => {
@@ -155,12 +146,16 @@ const CartPage = () => {
             ) : (
               <div className="mb-3">
                 {auth?.token ? (
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() => navigate("/dashboard/user/profile")}
-                  >
-                    Update Address
-                  </button>
+                  <div className="update-txt">
+                    <span >
+                      Please Update Your Address To CheckOut
+                    </span>
+                    <button
+                      onClick={() => navigate("/dashboard/user/profile")}
+                    >
+                      Update Address
+                    </button>
+                  </div>
                 ) : (
                   <button
                     className="btn btn-outline-warning"

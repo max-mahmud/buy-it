@@ -53,17 +53,17 @@ const ProductDetails = () => {
           />
         </div>
         <div className="col-md-6 product-details-info">
-          <h1 className="text-center">Product Details</h1>
+          <h2 className="text-center">Product Details</h2>
           <hr />
-          <h6>Name : {product.name}</h6>
+          <h4>Name : {product.name}</h4>
           <h6>Description : {product.description}</h6>
-          <h6>
+          <h5>
             Price :
             {product?.price?.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
             })}
-          </h6>
+          </h5>
           <h6>Category : {product?.category?.name}</h6>
           <button
             class="btn searchBtn ms-1"

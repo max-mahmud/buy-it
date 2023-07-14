@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./../components/layout/Layout";
 import axios from "axios";
-import { Checkbox, Radio } from "antd";
+import { Checkbox, Radio, Select } from "antd";
 import { Prices } from "../components/Prices";
 import { Navigate, useNavigate } from "react-router-dom";
 import { AiOutlineReload } from "react-icons/ai";
+import { BsGrid1X2Fill } from "react-icons/bs";
+import { FaThList } from "react-icons/fa";
 import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
 import "../styles/Homepage.css";
+import SliderPage from "../components/layout/SliderPage";
+const { Option } = Select;
 
 const HomePage = () => {
   const [cart, setCart] = useCart();
@@ -17,8 +21,10 @@ const HomePage = () => {
   const [radio, setRadio] = useState([]);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
+  const [open, setOpen] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   //get all cat
   const getAllCategory = async () => {
     try {
@@ -35,6 +41,7 @@ const HomePage = () => {
     getAllCategory();
     getTotal();
   }, []);
+
   //get products
   const getAllProducts = async () => {
     try {
@@ -47,6 +54,10 @@ const HomePage = () => {
       console.log(error);
     }
   };
+
+  // useEffect(() => {
+  //   if (checked.length || radio.length)
+  // }, [checked, radio]);
 
   //getTOtal COunt
   const getTotal = async () => {
@@ -93,10 +104,6 @@ const HomePage = () => {
     }
   }, [checked.length, radio.length, checked, radio]);
 
-  // useEffect(() => {
-  //   if (checked.length || radio.length)
-  // }, [checked, radio]);
-
   //get filterd product
   const filterProduct = async () => {
     try {
@@ -110,16 +117,12 @@ const HomePage = () => {
     }
   };
 
-
   const handleCart = (p) => {
     setCart([...cart, p]);
-    localStorage.setItem(
-      "cart",
-      JSON.stringify([...cart, p])
-    );
-    toast.success("Item Added to cart");
-  }
+    localStorage.setItem("cart", JSON.stringify([...cart, p]));
 
+    toast.success("Item Added to cart");
+  };
 
   return (
     <Layout title={"ALl Products - Best offers "}>
@@ -164,16 +167,26 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        <div className="col-md-9 ">
-          <h2 className="text-center">All Products</h2>
-          <div className="d-flex flex-wrap">
+        <div className="col-md-9 mt-2 ">
+          <div className="prd-header">
+            <h2 className="text-center">
+              All Products || Total Product Found {products.length}
+            </h2>
+            <button onClick={() => setOpen(!open)}>
+              {open ? <FaThList /> : <BsGrid1X2Fill />}
+            </button>
+          </div>
+          <div className="card-flex">
             {products?.map((p) => (
-              <div className="card m-2" key={p._id}>
-                <img
-                  src={`/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
+              <div className={`${open ? "card m-2" : "my-card"}`} key={p._id}>
+                <div>
+                  {" "}
+                  <img
+                    src={`/api/v1/product/product-photo/${p._id}`}
+                    className={`${open ? "card-img-top" : ""}`}
+                    alt={p.name}
+                  />
+                </div>
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
@@ -185,7 +198,12 @@ const HomePage = () => {
                     </h5>
                   </div>
                   <p className="card-text ">
-                    {p.description.substring(0, 60)}...
+                    {open ? (
+                      <span>{p.description.substring(0, 50)}</span>
+                    ) : (
+                      <span>{p.description.substring(0, 100)}</span>
+                    )}
+                    ...
                   </p>
                   <div className="card-name-price">
                     <button
@@ -225,6 +243,8 @@ const HomePage = () => {
               </button>
             )}
           </div>
+          <hr />
+          <SliderPage />
         </div>
       </div>
     </Layout>

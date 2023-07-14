@@ -109,7 +109,9 @@ body{
     align-items: center;
     justify-content: center;
   }
-
+.contactus h4{
+  margin: 0;
+}
   /* ======btn ============= */
 .ant-modal .ant-modal-close {
   top: 28px;
@@ -159,7 +161,7 @@ body{
   color: #fff;
 }
 .searchBtn:hover{
-  background-color: #077233;
+  background-color: #16a085;
   color: #fff;
 }
 @media (max-width: 991px) {
@@ -171,6 +173,12 @@ body{
 /* ================
 ====dashboard
 =================== */
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #16a085;
+}
 
 .dashboard {
   margin-top: 100px !important;
@@ -196,7 +204,7 @@ body{
   display: none;
 }
 .closeBtn{
-  background-color: #077233;
+  background-color: #16a085;
   padding: 0px 10px;
   border: none;
   color: #ddd;

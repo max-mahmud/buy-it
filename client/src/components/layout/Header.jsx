@@ -121,8 +121,8 @@ const Header = () => {
                 </>
               )}
               <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  Cart {cart?.length}
+                <NavLink to="/cart" className="nav-link badge-wrapper">
+                  Cart <span className="badge">{cart?.length}</span>
                 </NavLink>
               </li>
             </ul>

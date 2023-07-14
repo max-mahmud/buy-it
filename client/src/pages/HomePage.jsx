@@ -102,7 +102,7 @@ const HomePage = () => {
     } else {
       getAllProducts();
     }
-  }, [checked.length, radio.length, checked, radio]);
+  }, [checked, radio, checked.length, radio.length]);
 
   //get filterd product
   const filterProduct = async () => {

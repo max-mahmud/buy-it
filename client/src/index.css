@@ -168,6 +168,10 @@ body{
   .search-form{
     margin-top: 15px !important;
   }
+  .my-search-input{
+  min-width: 200px !important;
+  border-radius: 0;
+}
 }
 
 /* ================
@@ -224,8 +228,8 @@ body{
   min-width: 20px;
   height: 20px ;
   position: absolute;
-  top: 0px;
-  right: -10px;
+  top: -10px;
+  right: -20px;
   z-index: -10;
   background-color: #16a085;
 }

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { toast } from "react-toastify";
+import { AiOutlineMenuFold, AiOutlineClose } from "react-icons/ai";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
@@ -10,6 +11,7 @@ const Header = () => {
   const [cart, setCart] = useCart();
   const [auth, setAuth] = useAuth();
   const categories = useCategory();
+  const [open, setOpen] = useState(false);
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -23,8 +25,8 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand">
-            Buy It
+          <Link to="/" className="navbar-brand ms-3">
+            Buy-It
           </Link>
           <button
             className="navbar-toggler"
@@ -34,8 +36,9 @@ const Header = () => {
             aria-controls="navbarTogglerDemo01"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => setOpen(!open)}
           >
-            <span className="navbar-toggler-icon" />
+            <span>{open ? <AiOutlineClose /> : <AiOutlineMenuFold />}</span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -55,13 +58,8 @@ const Header = () => {
                   Categories
                 </Link>
                 <ul className="dropdown-menu">
-                  {/* <li>
-                    <Link className="dropdown-item" to={"/categories"}>
-                      All Categories
-                    </Link>
-                  </li> */}
-                  {categories?.map((c) => (
-                    <li>
+                  {categories?.map((c, i) => (
+                    <li key={i++}>
                       <Link
                         className="dropdown-item"
                         to={`/category/${c.slug}`}

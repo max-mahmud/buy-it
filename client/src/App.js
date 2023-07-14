@@ -23,6 +23,7 @@ import SearchPage from "./pages/SearchPage";
 import ProductDetails from "./pages/ProductDetails";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
+import AdminOrder from "./pages/admin/AdminOrder";
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/product/:slug" element={<UpdateProduct />} />
           <Route path="admin/users" element={<User />} />
+          <Route path="admin/orders" element={<AdminOrder />} />
         </Route>
 
         <Route path="/about" element={<About />} />

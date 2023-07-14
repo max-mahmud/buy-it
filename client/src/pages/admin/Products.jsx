@@ -22,23 +22,23 @@ const Products = () => {
   //lifecycle method
   useEffect(() => {
     getAllProducts();
-  }, [products]);
+  }, []);
 
   return (
     <Layout title={"Dashboard - All Users"}>
-      <div className="container-fluid m-3 p-3">
+      <div className="container-fluid m-3 p-3 ">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <h1>All Products</h1>
-            <div className="d-flex">
+          <div className="col-md-9 home-page ">
+            <h2>All Products</h2>
+            <div className="d-flex flex-wrap ">
               {products?.map((p) => (
                 <Link
                   key={p._id}
                   to={`/dashboard/admin/product/${p.slug}`}
-                  className="product-link"
+                  className="product-link m-2"
                 >
                   <div className="card m-2" style={{ width: "18rem" }}>
                     <img
@@ -48,7 +48,9 @@ const Products = () => {
                     />
                     <div className="card-body">
                       <h5 className="card-title">{p.name}</h5>
-                      <p className="card-text">{p.description}</p>
+                      <p className="card-text ">
+                        {p.description.substring(0, 60)}...
+                      </p>
                     </div>
                   </div>
                 </Link>

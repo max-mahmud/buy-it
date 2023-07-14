@@ -15,6 +15,16 @@ const CartPage = () => {
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // useEffect(() => {
+  //   let index = "";
+  //   let count = 0;
+  //   if (cart) {
+  //     index = cart.findIndex((i) => i._id !== uniquCart._id);
+  //     setUniqueCart(cart);
+  //   }
+  // }, [cart]);
+  // console.log(uniquCart);
+
   //total price
   const totalPrice = () => {
     try {
@@ -85,6 +95,8 @@ const CartPage = () => {
             <h1 className="text-center bg-light p-2 mb-1">
               {`Hello ${auth?.token && auth?.user?.name}`}
             </h1>
+            {/* <h2>{JSON.parse(uniquCart)}</h2> */}
+            {/* <h2>{uniquCart}</h2> */}
             <h4 className="text-center">
               {cart?.length
                 ? `You Have ${cart.length} items in your cart ${
@@ -96,8 +108,8 @@ const CartPage = () => {
         </div>
         <div className="row">
           <div className="col-md-8">
-            {cart?.map((p) => (
-              <div className="row mb-2 p-3 card flex-row">
+            {cart?.map((p, i) => (
+              <div className="row mb-2 p-3 card flex-row" key={i++}>
                 <div className="col-md-4">
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}

@@ -17,7 +17,7 @@ root.render(
       <SearchProvider>
         <BrowserRouter>
           <App />
-          <ToastContainer />
+          <ToastContainer position="top-left" />
         </BrowserRouter>
       </SearchProvider>
     </CartProvider>

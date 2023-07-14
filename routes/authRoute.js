@@ -3,9 +3,11 @@ import { isAdmin, requireSignIn } from "./../middleware/authMiddleware.js";
 import {
   deleteUser,
   forgetPassword,
+  getAllOrdersController,
   getOrdersController,
   getUser,
   loginController,
+  orderStatusController,
   registerController,
   updateProfileController,
 } from "../controller/authController.js";
@@ -41,5 +43,16 @@ router.put("/profile", requireSignIn, updateProfileController);
 
 //orders
 router.get("/orders", requireSignIn, getOrdersController);
+
+//all orders
+router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
+
+// order status update
+router.put(
+  "/order-status/:orderId",
+  requireSignIn,
+  isAdmin,
+  orderStatusController
+);
 
 export default router;
